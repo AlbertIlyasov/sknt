@@ -95,7 +95,7 @@ INSERT INTO `services` (`ID`, `user_id`, `tarif_id`, `payday`) VALUES
 -- Дамп данных таблицы `tarifs`
 --
 
-INSERT INTO `tarifs` (`ID`, `title`, `price`, `link`, `speed`, `pay_period` `tarif_group_id`) VALUES
+INSERT INTO `tarifs` (`ID`, `title`, `price`, `link`, `speed`, `pay_period`, `tarif_group_id`) VALUES
 (1, 'Земля', '500.0000', 'http://www.sknt.ru/tarifi_internet/in/1.htm', 50, 1, 1),
 (2, 'Земля (3 мес)', 1350, 'http://www.sknt.ru/tarifi_internet/in/1.htm', 50, 1, 1),
 (3, 'Земля (12 мес)', 4200, 'http://www.sknt.ru/tarifi_internet/in/1.htm', 50, 1, 1),

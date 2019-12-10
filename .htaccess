@@ -1,0 +1,4 @@
+IndexIgnore */*
+RewriteEngine on
+
+RewriteRule ([^\/]*)/([^\/]*)/?([^\/]*)/?([^\/]*)/?([^\/]*)$ index.php?k1=$1&v1=$2&k2=$3&v2=$4&k3=$5 [L]
