@@ -14,7 +14,7 @@ class Db
             return static::$dbh;
         }
 
-        $dsn = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST;
+        $dsn = sprintf('mysql:dbname=%s;host=%s;charset=utf8', DB_NAME, DB_HOST);
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

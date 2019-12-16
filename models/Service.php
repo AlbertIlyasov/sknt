@@ -9,11 +9,10 @@ class Service
     public function getTariffs(int $userId, int $serviceId): array
     {
         $query = 'SELECT tarif_id FROM services WHERE ID = ? and user_id = ?';
-        $data = Db::fetchAll($query, [$serviceId, $userId]);
-        if (!$data) {
+        $tariffId = Db::fetchAll($query, [$serviceId, $userId])[0]['tarif_id'] ?? null;
+        if (!$tariffId) {
             return [];
         }
-        $tariffId = $data[0]['tarif_id'];
 
         $query = 'SELECT * FROM tarifs WHERE tarif_group_id = ?';
         $data = Db::fetchAll($query, [$tariffId]);
@@ -27,6 +26,8 @@ class Service
             'speed'  => null,
             'tarifs' => [],
         ];
+
+        $now = time();
         foreach ($data as $tariff) {
             if ($tariffId == $tariff['ID']) {
                 $tariffs['title'] = $tariff['title'];
@@ -34,7 +35,6 @@ class Service
                 $tariffs['speed'] = (float) $tariff['speed'];
             }
 
-            $now = time();
             $newPayday = strtotime(sprintf(
                 '%d-%d-%d + %d months',
                 date('Y', $now),
